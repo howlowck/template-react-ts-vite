@@ -1,0 +1,18 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+
+export type {{ properCase name }} = object // TODO: Update Types
+
+// Define a service using a base URL and expected endpoints
+export const {{ camelCase name }}Api = createApi({
+  reducerPath: '{{ camelCase name }}Api',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://example.com/api/v2/' }), // TODO: Update URL
+  endpoints: (builder) => ({
+    get{{ properCase name }}ById: builder.query<{{ properCase name }}, string>({
+      query: (id) => `{{ camelCase name }}/${id}`,
+    }),
+  }),
+})
+
+// Export hooks for usage in functional components, which are
+// auto-generated based on the defined endpoints
+export const { useGet{{ properCase name }}ByIdQuery } = {{ camelCase name }}Api

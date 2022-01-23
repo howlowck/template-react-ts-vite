@@ -1,0 +1,32 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Provider } from 'react-redux'
+import { expect } from '@storybook/jest'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { within, userEvent } from '@storybook/testing-library'
+import {{ properCase name }} from './index'
+import { pause } from '../../../helpers/story'
+import store from '../../../redux/store'
+
+export default {
+  title: '{{ properCase name }}',
+  component: {{ properCase name }},
+  decorators: [(story: any) => <Provider store={store}>{story()}</Provider>],
+} as ComponentMeta<typeof {{ properCase name }}>
+
+const Template: ComponentStory<typeof {{ properCase name }}> = (args) => <{{ properCase name }} {...args}/>
+
+export const Main = Template.bind({})
+
+export const ChangeMeActions = Template.bind({}) // TODO: Change the action name
+
+ChangeMeActions.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input: HTMLInputElement = canvas.getByTitle('id-input')
+  const initialValue = parseInt(input.value, 10)
+  await pause(100)
+  await userEvent.click(canvas.getByText('+'))
+  await expect(input.value).toEqual(`${initialValue + 1}`)
+  await pause(100)
+  await userEvent.click(canvas.getByText('-'))
+  await expect(input.value).toEqual(`${initialValue}`)
+}

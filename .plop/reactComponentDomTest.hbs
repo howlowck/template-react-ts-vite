@@ -1,0 +1,14 @@
+import { rest } from 'msw'
+import { screen } from '@testing-library/react'
+import { server } from '../../../../mocks/server'
+import { renderWithProviders } from '../../../test-utils'
+
+import {{ properCase name }} from './index'
+
+describe('{{properCase name}}', () => {
+  it('renders correct text', async () => {
+    const {{ camelCase name }}Comp = <{{properCase name}} />
+    renderWithProviders({{ camelCase name }}Comp)
+    screen.getByText('Replace me ({{ properCase name }} component in src/components/{{subPath subpath}}{{ properCase name }}/index.ts)')
+  })
+})

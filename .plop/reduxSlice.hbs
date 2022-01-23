@@ -1,0 +1,17 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+type {{ properCase name }}State = {}
+
+const slice = createSlice({
+  name: '{{ name }}',
+  initialState: {} as {{ properCase name }}State,
+  reducers: {
+    // actionName: (state) => { mutate or return new state }
+  },
+})
+
+export const {
+  // actionNames
+} = slice.actions
+
+export default slice.reducer

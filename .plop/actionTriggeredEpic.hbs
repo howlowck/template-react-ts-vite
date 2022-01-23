@@ -1,0 +1,17 @@
+import { Action, createAction } from '@reduxjs/toolkit'
+import { Observable } from 'rxjs'
+import { filter, mergeMap } from 'rxjs/operators'
+
+export const {{camelCase name}} = createAction<{
+  message: string // payload type (change me)
+}>('epic/{{camelCase name}}')
+
+export const {{camelCase name}}Epic = (action$: Observable<Action>) =>
+  action$.pipe(
+    filter({{camelCase name}}.match),
+    mergeMap((action) => {
+      return [
+        // output actions
+      ]
+    })
+  )

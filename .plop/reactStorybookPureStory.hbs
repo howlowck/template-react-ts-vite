@@ -1,0 +1,10 @@
+import {{ properCase name }} from './index'
+
+export default {
+  title: '{{ properCase name }}',
+  component: {{ properCase name }},
+} as ComponentMeta<typeof {{ properCase name }}>
+
+const Template: ComponentStory<typeof {{ properCase name }}> = (args) => <{{ properCase name }} {...args}/>
+
+export const Main = Template.bind({})
