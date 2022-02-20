@@ -23,11 +23,10 @@ export default (appConfig: AppConfig) => {
   // Static files
   app.use('/', express.static(path.join(__dirname, './static')))
 
-  // Error Handling
-  app.use(function (err, req, res) {
-    console.error(`Unexpected error ${err.getMessage()} for request ${req}`)
-    res.status(500).send()
-  } as express.ErrorRequestHandler)
+  // // Error Handling
+  // app.use(function (err, req, res) {
+  //   console.error(`Unexpected error ${err.message} for request ${req}`)
+  // } as express.ErrorRequestHandler)
 
   return app
 }

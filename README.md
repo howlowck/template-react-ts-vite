@@ -54,6 +54,15 @@ An opininated but flexible React App template with batteries builtin.
 ## Steps to use this template
 * Update .github/ISSUE_TEMPLATE/config.yml (url property)
 
+## Getting Started
+* Run `npm ci` to install all the dependencies
+* Run `npm run dev` to run the application
+
+## Deploy
+* Run `npm ci`
+* Run `npm run build` to build the application
+* Run `npm start` to start the application
+
 ## TODO:
 * Resolve local files (avoid '../..' relative linking)
 * Create script to automate the code changes to create new project

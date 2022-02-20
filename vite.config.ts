@@ -11,6 +11,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist/static',
+    outDir: `${process.cwd()}/dist/static`,
   },
 })
