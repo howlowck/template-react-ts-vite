@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  AZURE_WEBAPP_NAME: template-react-ts-vite # CHANGE ME
+  AZURE_WEBAPP_NAME: tplreact-prod # CHANGE ME
   AZURE_WEBAPP_PACKAGE_PATH: './'
   NODE_VERSION: '14.x'
 
