@@ -118,9 +118,3 @@ resource "azurerm_key_vault_secret" "st_access_key_secret" {
     azurerm_key_vault_access_policy.pipeline_client
   ]
 }
-
-resource "azurerm_key_vault_secret" "pubsub_connection_string_secret" {
-  key_vault_id = azurerm_key_vault.tplreact.id
-  name         = "pubsub-connection-string"
-  value        = var.azure_pubsub_connection_string
-}
