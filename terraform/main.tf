@@ -57,7 +57,6 @@ resource "azurerm_linux_web_app" "tplreact" {
     "AZ_STORAGE_ACCOUNT_NAME"       = azurerm_storage_account.tplreact.name
     "AZ_STORAGE_TABLE_NAME"         = azurerm_storage_table.tplreact.name
     "AZ_STORAGE_ACCOUNT_ACCESS_KEY" = format("@Microsoft.KeyVault(VaultName=%s;SecretName=%s)", azurerm_key_vault.tplreact.name, azurerm_key_vault_secret.st_access_key_secret.name)
-    "AZ_PUBSUB_CONNECTION_STRING"   = format("@Microsoft.KeyVault(VaultName=%s;SecretName=%s)", azurerm_key_vault.tplreact.name, azurerm_key_vault_secret.pubsub_connection_string_secret.name)
   }
 }
 
