@@ -5,7 +5,6 @@ An opininated but flexible React App template with batteries builtin.
 ## Project Features
 * **[Typescript](https://www.typescriptlang.org/) Support**
 * **Modern React/Redux Integration** ([React](https://reactjs.org/), [Redux Toolkit](https://redux-toolkit.js.org/), [RTK Query](https://redux-toolkit.js.org/rtk-query/overview), [Redux Observable](https://redux-observable.js.org/))
-* Fun Component Development ([Storybook](https://storybook.js.org/))
 * Ensure Code Cleaniness and **auto fix styling** ([eslint](https://eslint.org/) + [Prettier](https://prettier.io/))
 * **Unit and Interaction Tests** ([jest](https://jestjs.io/) + [Storybook Interactions](https://storybook.js.org/docs/react/essentials/interactions))
 * E2E Tests ([Playwright](https://playwright.dev/))
@@ -24,7 +23,6 @@ An opininated but flexible React App template with batteries builtin.
 .
 ├── .devcontainer/          # VSCode DevContainer Configuration
 ├── .plop/                  # Plop templates
-├── .storybook/             # Storybook Configuration
 ├── docs/                   # Documentation files (alternatively `doc`)
 │   ├── media/              # Media (images, gifs) files
 │   ├── CODE_OF_CONDUCT.md  # Code of Conduct Document
