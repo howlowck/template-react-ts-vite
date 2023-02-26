@@ -19,7 +19,7 @@ provider "azurerm" {
 data "azurerm_client_config" "current" {}
 
 locals {
-  # UNGEN: replace "tplreact" with lowerCase(camelCase(var.appName))
+# UNGEN: replace "tplreact" with lowerCase(camelCase(var.appName))
   app = "tplreact"
 }
 
@@ -75,8 +75,7 @@ resource "azurerm_storage_table" "app" {
 }
 
 resource "azurerm_storage_table" "app_dev" {
-  # UNGEN: replace "haodev" with "dev"
-  name                 = "${local.app}tablehaodev"
+  name                 = "${local.app}table${var.environment}"
   storage_account_name = azurerm_storage_account.app.name
 }
 
