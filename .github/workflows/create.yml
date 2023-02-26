@@ -1,0 +1,75 @@
+# UNGEN: delete file
+name: Create a New Repo
+on:
+  workflow_dispatch:
+    inputs:
+      repoName:
+        description: 'Name of the repo to create'
+        required: true
+      repoDescription:
+        description: 'Description of the repo to create'
+        required: false
+        description: 'A newly created repo using Ungen'
+      repoVisibility:
+        type: choice
+        description: 'Visibility of the repo to create'
+        options: ['public', 'private']
+        required: false
+        default: 'private'
+      appName:
+        description: 'The name of your app'
+        required: true
+      appEnvironment:
+        description: 'The environment of your app'
+        required: true
+        default: 'dev'
+
+jobs:
+  create-repo:
+    env:
+      AZURE_AD_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
+      AZURE_AD_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      AZURE_AD_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+      TF_BACKEND_STORAGE_ACCOUNT: ${{ secrets.TF_BACKEND_STORAGE_ACCOUNT }}
+      TF_BACKEND_STORAGE_CONTAINER: ${{ secrets.TF_BACKEND_STORAGE_CONTAINER }}
+      TF_BACKEND_STORAGE_RESOURCE_GROUP: ${{ secrets.TF_BACKEND_STORAGE_RESOURCE_GROUP }}
+      TF_BACKEND_STORAGE_KEY: "${{ github.event.inputs.appName }}-${{ github.event.inputs.appEnvironment }}.tfstate"
+
+    runs-on: ubuntu-latest
+    name: A job to run ungen
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Ungen action step
+        uses: howlowck/ungen-action@v0.2
+        id: ungen
+        with:
+          inputDir: '.'
+          outputDir: 'generated'
+          keep: false
+          variables: |
+            appName=${{ github.event.inputs.appName }}
+            appEnvironment=${{ github.event.inputs.appEnvironment }}
+      - name: Create GitHub Repo
+        uses: howlowck/create-repo-action@v1.0
+        with:
+          zipPath: 'generated.zip'
+          repoName: '${{ github.event.inputs.repoName }}'
+          repoDescription: '${{ github.event.inputs.repoDescription }}'
+          repoVisibility: 'private'
+          securityToken: ${{ secrets.CREATE_REPO_TOKEN }}
+          envsToRepoSecrets: >-
+            AZURE_AD_CLIENT_ID,
+            AZURE_AD_CLIENT_SECRET,
+            AZURE_SUBSCRIPTION_ID,
+            AZURE_AD_TENANT_ID,
+            AZURE_CREDENTIALS,
+            TF_BACKEND_STORAGE_ACCOUNT,
+            TF_BACKEND_STORAGE_CONTAINER,
+            TF_BACKEND_STORAGE_RESOURCE_GROUP,
+            TF_BACKEND_STORAGE_KEY
+
+      - name: Get the output path
+        run: echo "The path to output is ${{ steps.ungen.outputs.pathToOutput }}"
