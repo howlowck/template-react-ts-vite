@@ -53,6 +53,7 @@ jobs:
             appName=${{ github.event.inputs.appName }}
             appEnvironment=${{ github.event.inputs.appEnvironment }}
       - name: Create GitHub Repo
+        id: create-repo
         uses: howlowck/create-repo-action@v1.0
         with:
           zipPath: 'generated.zip'
@@ -72,4 +73,4 @@ jobs:
             TF_BACKEND_STORAGE_KEY
 
       - name: Get the output path
-        run: echo "The path to output is ${{ steps.ungen.outputs.pathToOutput }}"
+        run: echo "The path to output is ${{ steps.create-repo.outputs.repoUrl }}"
