@@ -55,16 +55,16 @@ jobs:
       - run: >-
           terraform plan
           -no-color
-      # UNGEN: replace "prod" with var.appEnvironment
+# UNGEN: replace "prod" with var.appEnvironment
           -out=prod.tfplan
-      # UNGEN: replace "prod" with var.appEnvironment
+# UNGEN: replace "prod" with var.appEnvironment
       - run: terraform apply -auto-approve prod.tfplan
   build-and-deploy:
     name: 'Build and Deploy App'
     runs-on: ubuntu-latest
-    # UNGEN: replace "prod" with var.appEnvironment
+# UNGEN: replace "prod" with var.appEnvironment
     needs: terraform-plan-prod
-    # UNGEN: replace "prod" with var.appEnvironment
+# UNGEN: replace "prod" with var.appEnvironment
     environment: prod
     steps:
       - uses: actions/checkout@main
