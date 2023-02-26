@@ -49,20 +49,20 @@ jobs:
           -backend-config="container_name=${{ secrets.TF_BACKEND_STORAGE_CONTAINER }}"
           -backend-config="key=${{ secrets.TF_BACKEND_STORAGE_KEY }}"
           -backend-config="resource_group_name=${{ secrets.TF_BACKEND_STORAGE_RESOURCE_GROUP }}"
+
       - run: terraform validate
-      - run: >-
-          terraform plan
-          -no-color
 
-          -out=prod.tfplan
+      # UNGEN: replace "prod" with var.appEnvironment
+      - run: terraform plan -no-color -out=prod.tfplan
 
+      # UNGEN: replace "prod" with var.appEnvironment
       - run: terraform apply -auto-approve prod.tfplan
   build-and-deploy:
     name: 'Build and Deploy App'
     runs-on: ubuntu-latest
-
+    # UNGEN: replace "prod" with var.appEnvironment
     needs: terraform-plan-prod
-
+    # UNGEN: replace "prod" with var.appEnvironment
     environment: prod
     steps:
       - uses: actions/checkout@main
