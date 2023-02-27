@@ -43,7 +43,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Ungen action step
-        uses: howlowck/ungen-action@v0.3
+        uses: howlowck/ungen-action@main
         id: ungen
         with:
           inputDir: '.'
