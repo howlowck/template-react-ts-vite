@@ -74,11 +74,6 @@ resource "azurerm_storage_table" "app" {
   storage_account_name = azurerm_storage_account.app.name
 }
 
-resource "azurerm_storage_table" "app_dev" {
-  name                 = "${local.app}table${var.environment}"
-  storage_account_name = azurerm_storage_account.app.name
-}
-
 resource "azurerm_key_vault" "app" {
   name                       = "kv${local.app}${var.environment}"
   location                   = azurerm_resource_group.app.location
