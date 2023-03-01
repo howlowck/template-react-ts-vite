@@ -49,7 +49,7 @@ jobs:
           inputDir: '.'
           outputDir: 'generated'
           keep: false
-          variables: |-
+          variables: |
             appEnvironment="${{ github.event.inputs.appEnvironment }}"
             appName="${{ github.event.inputs.appName }}"
       - name: Create GitHub Repo
