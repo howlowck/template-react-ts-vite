@@ -49,9 +49,9 @@ jobs:
           inputDir: '.'
           outputDir: 'generated'
           keep: false
-          variables: |
-            appEnvironment="${{ github.event.inputs.appEnvironment }}"
-            appName="${{ github.event.inputs.appName }}"
+          variables: |-
+            appEnvironment=${{ github.event.inputs.appEnvironment }}
+            appName=${{ github.event.inputs.appName }}
       - name: Create GitHub Repo
         id: create-repo
         uses: howlowck/create-repo-action@v1.0
