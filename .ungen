@@ -1,0 +1,4 @@
+// UNGEN: inject file:package.json on ln 2 'replace "template-react-ts-vite" with kebabCase(var.appName)'
+// UNGEN: inject file:package-lock.json on ln 2 'replace "template-react-ts-vite" with kebabCase(var.appName)'
+// UNGEN: inject file:package-lock.json on ln 8 'replace "template-react-ts-vite" with kebabCase(var.appName)'
+// UNGEN: delete file

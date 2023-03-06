@@ -11,7 +11,7 @@ type Prop = {
   // put props typings here. i.e. "className: string"
 }
 
-// UNGEN: replace "Template App" with var.appName
+// UNGEN: replace "My Template App" with var.appName
 const heading = 'Welcome to My Template App'
 
 const App: React.FC<Prop> = () => {
