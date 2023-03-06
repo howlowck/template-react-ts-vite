@@ -35,7 +35,7 @@ jobs:
       TF_BACKEND_STORAGE_ACCOUNT: ${{ secrets.TF_BACKEND_STORAGE_ACCOUNT }}
       TF_BACKEND_STORAGE_CONTAINER: ${{ secrets.TF_BACKEND_STORAGE_CONTAINER }}
       TF_BACKEND_STORAGE_RESOURCE_GROUP: ${{ secrets.TF_BACKEND_STORAGE_RESOURCE_GROUP }}
-      TF_BACKEND_STORAGE_KEY: '${{ github.event.inputs.appName }}-${{ github.event.inputs.appEnvironment }}.tfstate'
+      TF_BACKEND_STORAGE_KEY: '${{ github.event.inputs.repoName }}-${{ github.event.inputs.appEnvironment }}.tfstate'
 
     runs-on: ubuntu-latest
     name: A job to run ungen
