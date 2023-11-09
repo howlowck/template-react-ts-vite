@@ -1,8 +1,9 @@
-[//]: # 'UNGEN:'
-
 # GitHub Template for React-based for Azure
 
 An opininated but flexible React App template with batteries builtin.
+
+[//]: # 'UNGEN: replace "tplreact-prod" with concat(lowerCase(camelCase(var.appName)), "-", var.appEnvironment)'
+You can view the live site here: <https://tplreact-prod.azurewebsites.net/>
 
 ## Project Features
 
@@ -67,7 +68,7 @@ An opininated but flexible React App template with batteries builtin.
 - Run `npm run build` to build the application
 - Run `npm start` to start the application
 
-## TODO:
+## TODO
 
 - Resolve local files (avoid '../..' relative linking)
 - Create script to automate the code changes to create new project
