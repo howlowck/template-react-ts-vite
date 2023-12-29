@@ -9,8 +9,8 @@ export type AppConfig = {
   dataStorageConnectionString?: string
 }
 
-export default (appConfig: AppConfig) => {
-  const { dataStorageType } = appConfig
+export default (_appConfig: AppConfig) => {
+  // const { dataStorageType } = appConfig
   const app = express()
 
   // Needed for parsing http body content.

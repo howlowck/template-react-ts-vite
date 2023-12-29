@@ -1,8 +1,8 @@
 // src/mocks/handlers.js
-import { rest } from 'msw'
+import { http, HttpResponse } from 'msw'
 export const handlers = [
   // Handles a GET /user request
-  rest.get('https://pokeapi.co/api/v2/pokemon/:id', (req, res, ctx) => {
+  http.get('https://pokeapi.co/api/v2/pokemon/:id', (req) => {
     const { id } = req.params
 
     const mockApiResponses: { [key: string]: object } = {
@@ -34,6 +34,7 @@ export const handlers = [
         },
       },
     }
-    return res(ctx.json(mockApiResponses[id as string]))
+    const body = mockApiResponses[id.toString()]
+    return HttpResponse.json(body)
   }),
 ]

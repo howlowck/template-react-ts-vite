@@ -1,8 +1,9 @@
-import { rest } from 'msw'
+import { HttpResponse, http } from 'msw'
 import { screen } from '@testing-library/react'
 import { server } from '../../mocks/server'
 import { renderWithProviders } from '../../src/test-utils'
 import App from '../../src/components/layouts/App'
+import React from 'react'
 
 describe('App', () => {
   it('handles good response', async () => {
@@ -26,8 +27,8 @@ describe('App', () => {
   it('handles error response', async () => {
     // force msw to return error response
     server.use(
-      rest.get('https://pokeapi.co/api/v2/pokemon/1', (req, res, ctx) => {
-        return res(ctx.status(500))
+      http.get('https://pokeapi.co/api/v2/pokemon/1', () => {
+        return HttpResponse.json({}, { status: 500 })
       })
     )
 
