@@ -1,13 +1,26 @@
 {
+  "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
-    "jsx": "react",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "outDir": "./dist/",
+    "lib": [
+      "ES2022"
+    ],
+    "target": "ES2022",
+    "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist"
+    "importsNotUsedAsValues": "remove",
+    "isolatedModules": true,
+    "esModuleInterop": true
   },
-  "include": ["server/**/*"]
+  "include": [
+    "server/**/*"
+  ],
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "files": true,
+    "experimentalResolver": true
+  }
 }

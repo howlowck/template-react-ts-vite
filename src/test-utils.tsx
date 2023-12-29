@@ -30,3 +30,5 @@ function renderWithProviders(
 }
 
 export { renderWithProviders }
+
+export { default as userEvent } from '@testing-library/user-event'

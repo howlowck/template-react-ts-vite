@@ -49,7 +49,7 @@ resource "azurerm_linux_web_app" "app" {
 
   site_config {
     application_stack {
-      node_version = "14-lts"
+      node_version = "20-lts"
     }
   }
 
