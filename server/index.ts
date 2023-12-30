@@ -2,7 +2,7 @@ import { config } from 'dotenv'
 config()
 import makeApp from './server'
 
-const port = 8585 // process.env.port ?? process.env.PORT ?? 8585
+const port = process.env['port'] ?? process.env['PORT'] ?? 8585
 const app = makeApp({
   environment: (process.env['NODE_ENV'] as 'prod' | 'dev' | 'test') ?? 'prod',
   dataStorageType: (process.env['DATA_STORAGE_TYPE'] as 'aztable') ?? 'aztable',
