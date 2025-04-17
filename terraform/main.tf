@@ -20,8 +20,8 @@ provider "azurerm" {
 data "azurerm_client_config" "current" {}
 
 locals {
-# UNGEN: replace "tplreact" with lowerCase(camelCase(var.appName))
-  app = "tplreact"
+# UNGEN: replace "tplreactts" with lowerCase(camelCase(var.appName))
+  app = "tplreactts"
 }
 
 #Create Resource Group
