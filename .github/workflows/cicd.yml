@@ -10,8 +10,8 @@ on:
       - '!.github/workflows/create.yml'
 
 env:
-  # UNGEN: replace "tplreact-prod" with concat(lowerCase(camelCase(var.appName)), "-", var.appEnvironment)
-  AZURE_WEBAPP_NAME: tplreact-prod
+  # UNGEN: replace "tplreact-prod-1" with concat(lowerCase(camelCase(var.appName)), "-", var.appEnvironment)
+  AZURE_WEBAPP_NAME: tplreact-prod-1
   AZURE_WEBAPP_PACKAGE_PATH: './'
   NODE_VERSION: '14.x'
 
